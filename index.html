@@ -12,14 +12,14 @@
     <p>Get movie recommendations based on your watch history.</p>
   </header>
 
-  <main class="chat-container" id="chatContainer">
-    <!-- Chat messages will go here -->
-  </main>
-
-  <form id="chatForm">
-    <input type="text" id="userInput" placeholder="Type your message..." autocomplete="off" required />
-    <button type="submit">Send</button>
-  </form>
+  <section class="chat-ui">
+    <h2>Chat with Me</h2>
+    <div id="chatWindow" class="chat-window"></div>
+    <form id="chatForm" autocomplete="off">
+      <input type="text" id="chatInput" placeholder="Type your message..." required />
+      <button type="submit">Send</button>
+    </form>
+  </section>
 
   <script src="script.js"></script>
 </body>

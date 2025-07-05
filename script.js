@@ -1,6 +1,6 @@
-const chatContainer = document.getElementById("chatContainer");
+const chatWindow = document.getElementById("chatWindow");
 const chatForm = document.getElementById("chatForm");
-const userInput = document.getElementById("userInput");
+const chatInput = document.getElementById("chatInput");
 
 function createMessage(text, sender = "bot") {
   const msg = document.createElement("div");
@@ -9,16 +9,16 @@ function createMessage(text, sender = "bot") {
   const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
   msg.innerHTML = `
-    <div>${text}</div>
+    <div class="bubble ${sender}">${text}</div>
     <div class="timestamp">${timestamp}</div>
   `;
-  chatContainer.appendChild(msg);
-  chatContainer.scrollTop = chatContainer.scrollHeight;
+  chatWindow.appendChild(msg);
+  chatWindow.scrollTop = chatWindow.scrollHeight;
 }
 
 chatForm.addEventListener("submit", function (e) {
   e.preventDefault();
-  const userMsg = userInput.value.trim();
+  const userMsg = chatInput.value.trim();
   if (!userMsg) return;
 
   createMessage(userMsg, "user");
@@ -29,5 +29,5 @@ chatForm.addEventListener("submit", function (e) {
     createMessage(reply, "bot");
   }, 1000);
 
-  userInput.value = "";
+  chatInput.value = "";
 });
