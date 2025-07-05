@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My First Website</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Welcome to My Website</h1>
+    <p>I'm learning to build websites!</p>
+  </header>
+
+  <section class="lead-form">
+    <h2>Contact Me</h2>
+    <form id="leadForm">
+      <label>Name:</label><br>
+      <input type="text" name="name" required><br>
+
+      <label>Email:</label><br>
+      <input type="email" name="email" required><br>
+
+      <label>Message:</label><br>
+      <textarea name="message" rows="4" required></textarea><br>
+
+      <button type="submit">Submit</button>
+    </form>
+    <p id="formMessage"></p>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
