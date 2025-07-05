@@ -1,35 +1,33 @@
-document.addEventListener('DOMContentLoaded', function () {
-  const chatForm = document.getElementById('chatForm');
-  const chatInput = document.getElementById('chatInput');
-  const chatWindow = document.getElementById('chatWindow');
+const chatContainer = document.getElementById("chatContainer");
+const chatForm = document.getElementById("chatForm");
+const userInput = document.getElementById("userInput");
 
-  function appendMessage(text, sender = 'user') {
-    const msgDiv = document.createElement('div');
-    msgDiv.className = `message ${sender}`;
-    const bubble = document.createElement('div');
-    bubble.className = `bubble ${sender}`;
-    bubble.textContent = text;
-    msgDiv.appendChild(bubble);
-    chatWindow.appendChild(msgDiv);
-    chatWindow.scrollTop = chatWindow.scrollHeight;
-  }
+function createMessage(text, sender = "bot") {
+  const msg = document.createElement("div");
+  msg.classList.add("message", sender);
 
-  chatForm.addEventListener('submit', function (e) {
-    e.preventDefault();
-    const userMsg = chatInput.value.trim();
-    if (!userMsg) return;
-    appendMessage(userMsg, 'user');
-    chatInput.value = '';
+  const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
-    // Simple bot reply
-    setTimeout(() => {
-      appendMessage("Thanks for your message! (This is a demo bot.)", 'bot');
-    }, 600);
-  });
-});
+  msg.innerHTML = `
+    <div>${text}</div>
+    <div class="timestamp">${timestamp}</div>
+  `;
+  chatContainer.appendChild(msg);
+  chatContainer.scrollTop = chatContainer.scrollHeight;
+}
 
-document.getElementById('leadForm').addEventListener('submit', function(event) {
-  event.preventDefault();
-  document.getElementById('formMessage').textContent = "Thanks! We'll get in touch soon.";
-  this.reset(); // Clear form
+chatForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+  const userMsg = userInput.value.trim();
+  if (!userMsg) return;
+
+  createMessage(userMsg, "user");
+
+  // Simulate bot response (replace this later with API call)
+  setTimeout(() => {
+    const reply = `You liked "${userMsg}"? Try watching "Interstellar" next! 🎬`;
+    createMessage(reply, "bot");
+  }, 1000);
+
+  userInput.value = "";
 });
