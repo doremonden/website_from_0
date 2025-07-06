@@ -25,7 +25,7 @@ chatForm.addEventListener("submit", function (e) {
 
   // Simulate bot response (replace this later with API call)
   setTimeout(() => {
-    const reply = `You liked "${userMsg}"? Try watching "Interstellar" next! 🎬`;
+    const reply = `You watched "${userMsg}"? What else have you watched? 🎬`;
     createMessage(reply, "bot");
   }, 1000);
 
