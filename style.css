@@ -49,7 +49,8 @@ header p {
 }
 
 .message.bot {
-  background-color: #ffe0b2;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
   margin-right: auto;
   text-align: left;
 }
@@ -63,24 +64,40 @@ header p {
 form {
   display: flex;
   justify-content: center;
+  align-items: center;
   padding: 10px;
   border-top: 1px solid #ccc;
   background: #fff;
+
+  /* ✅ Make form sticky */
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
 }
 
 form input {
-  width: 70%;
+  flex: 1;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 20px;
   margin-right: 10px;
 }
 
+form .button-group {
+  display: flex;
+  gap: 5px;
+}
+
 form button {
-  padding: 10px 20px;
+  padding: 10px 16px;
   border: none;
   background-color: #3f51b5;
   color: white;
   border-radius: 20px;
   cursor: pointer;
+  font-size: 14px;
+}
+
+form button:hover {
+  background-color: #303f9f;
 }
