@@ -13,7 +13,7 @@ app.post("/send", async (req, res) => {
 
   try {
     await axios.post(
-      "https://dden4.app.n8n.cloud/webhook-test/b83a898a-208d-4a30-a134-3b513beb6244",
+      "https://dden4.app.n8n.cloud/webhook/b83a898a-208d-4a30-a134-3b513beb6244",
       { message }
     );
 
@@ -29,7 +29,7 @@ app.post("/send", async (req, res) => {
 app.get("/all-messages", async (req, res) => {
   try {
     const response = await axios.get(
-      "https://dden4.app.n8n.cloud/webhook-test/352b1ed9-a6be-411b-a0c3-1e754c4ed900"
+      "https://dden4.app.n8n.cloud/webhook/352b1ed9-a6be-411b-a0c3-1e754c4ed900"
     );
     res.json({ messages: response.data });
   } catch (err) {
@@ -38,6 +38,7 @@ app.get("/all-messages", async (req, res) => {
   }
 });
 
+// ✅ Start server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`🚀 Server running at http://localhost:${PORT}`);
